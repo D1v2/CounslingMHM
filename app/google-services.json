@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "435318805933",
+    "project_id": "counsling-2eaf0",
+    "storage_bucket": "counsling-2eaf0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:435318805933:android:9d6b98423c17f7c4d0bd24",
+        "android_client_info": {
+          "package_name": "com.example.counsling"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "435318805933-62nl35ppfhgtfmu06i5o745ha7vchvdo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3CZKy6HJglFs-n_nt1mWoYos9WDjXr-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "435318805933-62nl35ppfhgtfmu06i5o745ha7vchvdo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

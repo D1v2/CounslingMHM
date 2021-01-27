@@ -1,0 +1,21 @@
+
+m
+java:S1104"WMake phonenumber a static final constant or non-public and provide accessors if needed.(Ú—Åß
+9
+java:S1659"#Declare "email" on a separate line.(Ú—Åß
+j
+java:S1104"TMake password a static final constant or non-public and provide accessors if needed.(Ú—Åß
+f
+java:S1104"PMake name a static final constant or non-public and provide accessors if needed.(Ú—Åß
+:
+java:S1659"$Declare "userid" on a separate line.(Ú—Åß
+?
+java:S1659")Declare "phonenumber" on a separate line.(Ú—Åß
+<
+java:S1659"&Declare "password" on a separate line.(Ú—Åß
+h
+java:S1104"RMake userid a static final constant or non-public and provide accessors if needed.(Ú—Åß
+g
+java:S1104"QMake email a static final constant or non-public and provide accessors if needed.(Ú—Åß
+S
+java:S1128"1Remove this unused import 'java.io.Serializable'.(Ë„Ó¬ˇˇˇˇˇ8Àú¿¸Û.

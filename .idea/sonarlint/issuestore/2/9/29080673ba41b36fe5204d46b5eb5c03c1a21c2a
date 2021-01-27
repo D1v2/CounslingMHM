@@ -1,0 +1,18 @@
+
+;
+java:S1659"%Declare "problem" on a separate line.(åÓ½
+:
+java:S1659"$Declare "userid" on a separate line.(åÓ½
+>
+java:S1659"(Declare "usernumber" on a separate line.(åÓ½
+f	java:S1171"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ó½¢ã
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´Íæ
+;
+java:S1659"%Declare "callyou" on a separate line.(åÓ½
+G
+java:S1659"1Declare "Follow_on_Instagram" on a separate line.(åÓ½
+@
+java:S1659"#Declare "token" on a separate line.(åÓ½8âÈüó.
+h	java:S100-"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÑÊ€ˆşÿÿÿÿ
+c	java:S1001"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ó½¢ã
+s	java:S116"^Rename this field "Follow_on_Instagram" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åÓ½

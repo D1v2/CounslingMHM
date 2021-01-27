@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F8FF"
+    tools:context=".activities.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/mainlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="UselessParent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/toolbar"
+                app:title="MHM"
+                app:titleTextColor="#5DC5AC" />
+
+            <FrameLayout
+                android:id="@+id/wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/toolbar">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:ignore="UselessParent">
+
+                    <com.denzcoskun.imageslider.ImageSlider
+                        android:id="@+id/imageslider"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_margin="4dp"
+                        app:iss_auto_cycle="true"
+                        app:iss_corner_radius="9"
+                        app:iss_delay="500"
+                        app:iss_error_image="@drawable/image_slider"
+                        app:iss_period="2500"
+                        app:iss_placeholder="@drawable/image_slider" />
+
+                    <Button
+                        android:id="@+id/booking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:layout_below="@+id/imageslider"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="58dp"
+                        android:layout_marginTop="115dp"
+                        android:layout_marginEnd="46dp"
+                        android:background="@drawable/button_background"
+                        android:fontFamily="monospace"
+                        android:text="Book Now"
+                        android:textAllCaps="false"
+                        android:textColor="#fff"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="#fff"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="15dp" />
+
+                    <ImageView
+                        android:id="@+id/chats"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/bg_round"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/_13sdp"
+                        android:src="@drawable/chats" />
+
+                    <ImageView
+                        android:id="@+id/Calling1"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/bg_round"
+                        android:visibility="gone"
+                        tools:ignore="ContentDescription" />
+                </RelativeLayout>
+            </FrameLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/callinglayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/outgoing"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="UselessParent">
+
+            <TextView
+                android:id="@+id/income"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="60dp"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="Incoming Call.."
+                android:textColor="#ffff"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/connected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="120dp"
+                android:gravity="center"
+                android:text="Call is connected"
+                android:textSize="30sp"
+                android:visibility="invisible" />
+
+            <Chronometer
+                android:id="@+id/chronometer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/connected"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:gravity="center"
+                android:textColor="#fff"
+                android:textSize="@dimen/_14sdp"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/endcall"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="40dp"
+                android:background="@drawable/bg_round"
+                android:backgroundTint="#E70F3A"
+                android:contentDescription="@string/app_name"
+                android:padding="15dp"
+                android:src="@drawable/audio_call" />
+
+            <ImageView
+                android:id="@+id/acceptcall"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="40dp"
+                android:background="@drawable/bg_round"
+                android:backgroundTint="#4CAF50"
+                android:contentDescription="@string/app_name"
+                android:padding="15dp"
+                android:src="@drawable/audio_call" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navmenu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@drawable/navigation_drawer"
+        app:headerLayout="@layout/header_menu"
+        app:menu="@menu/navigation_menu" />
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/share"
+        android:title="Share"
+        android:titleCondensed="5DC5AC"
+        android:icon="@drawable/share_icon"/>
+    <item android:id="@+id/about"
+        android:titleCondensed="5DC5AC"
+        android:title="About Us"
+        android:icon="@drawable/about_icon"
+        />
+    <item
+        android:id="@+id/logout"
+        android:titleCondensed="5DC5AC"
+        android:icon="@drawable/logout"
+        android:title="Logout"
+        />
+</menu>

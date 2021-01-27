@@ -1,0 +1,6 @@
+
+m	java:S116""SRename this field "btn_send" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(é²üÿÿÿÿ
+a
+java:S1192R"FDefine a constant instead of duplicating this literal "Chats" 3 times.(—ªÆüûÿÿÿÿ
+P	java:S110"<This class has 9 parents which is greater than 5 authorized.(¡êÉ
+h	java:S116!"SRename this field "txt_send" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡ôµ
