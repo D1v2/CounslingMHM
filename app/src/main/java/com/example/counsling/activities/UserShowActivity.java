@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.counsling.R;
@@ -20,6 +21,8 @@ import com.example.counsling.fragments.Booking;
 import com.example.counsling.fragments.Chats;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -30,6 +33,7 @@ public class UserShowActivity extends AppCompatActivity {
     Toolbar toolbar;
     TabLayout tabLayout;
     ViewPager viewPager;
+    SharedPreferences sharedPreferences1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,7 @@ public class UserShowActivity extends AppCompatActivity {
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+        sharedPreferences1=getSharedPreferences("doctorlog",MODE_PRIVATE);
 
         navigationView.setNavigationItemSelectedListener(menuItem -> {
 
@@ -64,9 +69,16 @@ public class UserShowActivity extends AppCompatActivity {
             return true;
         });
     }
-
     private void logout() {
-        startActivity(new Intent(getApplicationContext(), SignInActivity.class));
+        SharedPreferences.Editor editor = sharedPreferences1.edit();
+        editor.clear();
+        editor.apply();
+//        FirebaseFirestore database=FirebaseFirestore.getInstance();
+//        DocumentReference documentReference=database.collection("Doctor").document("DxyQovG9xtrQ1PF1hD5b");
+//
+        Intent intent=new Intent(getApplicationContext(),MainPageActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
         finish();
     }
 }

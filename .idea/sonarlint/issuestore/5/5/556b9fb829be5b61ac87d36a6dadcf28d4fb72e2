@@ -1,7 +1,8 @@
 
-Q
-java:S1874P"<Remove this use of "FragmentPagerAdapter"; it is deprecated.(‘í›\
+7	java:S131?""Add a default case to this switch.(¿›İ”
 a
-java:S1301:"KReplace this "switch" statement by "if" statements to increase readability.(¿›İ”
-Q	java:S110"<This class has 9 parents which is greater than 5 authorized.(¤´Â
-7	java:S131:""Add a default case to this switch.(¿›İ”
+java:S1301?"KReplace this "switch" statement by "if" statements to increase readability.(¿›İ”
+Q	java:S110"<This class has 9 parents which is greater than 5 authorized.(¤´Â
+X	java:S125L"<This block of commented-out lines of code should be removed.(¿ÙÕí8£×ÜŸô.
+X
+java:S1874\"<Remove this use of "FragmentPagerAdapter"; it is deprecated.(‘í›\8ê¾¡Ÿô.

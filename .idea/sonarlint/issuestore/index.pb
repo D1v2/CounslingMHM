@@ -33,8 +33,6 @@ q
 Aapp/src/main/java/com/example/counsling/halper/BookingHalper.java,2\9\29080673ba41b36fe5204d46b5eb5c03c1a21c2a
 i
 9app/src/main/java/com/example/counsling/halper/Chats.java,3\3\33a4668ff8dfe263d0328a4dae23794813d67ee7
-p
-@app/src/main/java/com/example/counsling/halper/DoctorHalper.java,5\6\56808b09f6dd3193c5eed16ae6e1af2d949129f5
 n
 >app/src/main/java/com/example/counsling/halper/UserHalper.java,e\5\e5141152df6e6ed768e36b776e15d5632c14c0c1
 w
@@ -51,3 +49,9 @@ p
 @app/src/main/java/com/example/counsling/networks/ApiService.java,d\a\daef9713041268da457ce4dc3fcc2ade501e2a45
 r
 Bapp/src/main/java/com/example/counsling/Listener/UserListener.java,d\f\dfb0d677d4c2b59ad993afbff1dd15b5388cb919
+t
+Dapp/src/main/java/com/example/counsling/activities/SplashScreen.java,8\1\813fa57e85011fc9af54d2655257789e50b248d2
+x
+Happ/src/main/java/com/example/counsling/activities/MainPageActivity.java,9\6\960ad7f1a5f949088cf3ecb5b19c2256584988e9
+u
+Eapp/src/main/java/com/example/counsling/activities/AboutActivity.java,4\c\4ce5a5f70fdc7004832a497916b59b3611e4a486

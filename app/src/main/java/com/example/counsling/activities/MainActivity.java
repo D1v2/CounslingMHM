@@ -1,5 +1,6 @@
 package com.example.counsling.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -11,7 +12,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
@@ -30,8 +33,11 @@ import com.example.counsling.R;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.sinch.android.rtc.PushPair;
 import com.sinch.android.rtc.Sinch;
@@ -41,6 +47,7 @@ import com.sinch.android.rtc.calling.CallClient;
 import com.sinch.android.rtc.calling.CallClientListener;
 import com.sinch.android.rtc.calling.CallListener;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String ENVIRONMENT = "clientapi.sinch.com";
     SharedPreferences sharedPreferences;
     Call call;
+    SinchClient sinchClient;
+    TextView usershowname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,14 +107,15 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer);
         toolbar = findViewById(R.id.toolbar);
         imageSlider = findViewById(R.id.imageslider);
+        usershowname=findViewById(R.id.usernameshow);
         setSupportActionBar(toolbar);
 
         //sharedpreference
-        sharedPreferences = getSharedPreferences("SHARED_PREF", MODE_PRIVATE);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        FirebaseDatabase.getInstance().getReference("users");
-        assert user != null;
-        userId = user.getUid();
+        sharedPreferences = getSharedPreferences("userlog", MODE_PRIVATE);
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            FirebaseDatabase.getInstance().getReference("users");
+            assert user != null;
+            userId = user.getUid();
 
         //Actions
         booking.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), BookingActivity.class)));
@@ -115,14 +125,31 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         View view = navigationView.getHeaderView(0);
+        usershowname=view.findViewById(R.id.usernameshow);
+        DatabaseReference reference=FirebaseDatabase.getInstance().getReference("users");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String username=snapshot.child(userId).child("name").getValue(String.class);
+                usershowname.setText(username);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         navigationView.setNavigationItemSelectedListener(menuItem -> {
 
             if (menuItem.getItemId() == R.id.logout) {
                 logout();
                 drawerLayout.closeDrawer(GravityCompat.START);
             } else if (menuItem.getItemId() == R.id.share) {
+                invitefriends();
                 drawerLayout.closeDrawer(GravityCompat.START);
             } else if (menuItem.getItemId() == R.id.about) {
+                Intent intent=new Intent(getApplicationContext(),AboutActivity.class);
+                startActivity(intent);
                 drawerLayout.closeDrawer(GravityCompat.START);
             }
             return true;
@@ -130,21 +157,25 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Calling
-        SinchClient sinchClient = Sinch.getSinchClientBuilder()
-                .context(getApplicationContext())
-                .userId(userId)
-                .applicationKey(APP_KEY)
-                .applicationSecret(APP_SECRET)
-                .environmentHost(ENVIRONMENT)
-                .build();
-        sinchClient.setSupportCalling(true);
-        sinchClient.startListeningOnActiveConnection();
-        sinchClient.setSupportCalling(true);
-        sinchClient.setSupportActiveConnectionInBackground(true);
-        sinchClient.setSupportPushNotifications(true);
-        sinchClient.getCallClient().addCallClientListener(new SinchCallClientListener() {
-        });
-        sinchClient.start();
+        try {
+            sinchClient = Sinch.getSinchClientBuilder()
+                    .context(getApplicationContext())
+                    .userId(userId)
+                    .applicationKey(APP_KEY)
+                    .applicationSecret(APP_SECRET)
+                    .environmentHost(ENVIRONMENT)
+                    .build();
+            sinchClient.setSupportCalling(true);
+            sinchClient.startListeningOnActiveConnection();
+            sinchClient.setSupportCalling(true);
+            sinchClient.setSupportActiveConnectionInBackground(true);
+            sinchClient.setSupportPushNotifications(true);
+            sinchClient.getCallClient().addCallClientListener(new SinchCallClientListener() {
+            });
+            sinchClient.start();
+        }catch (Exception e){
+            System.out.println(e);
+        }
 
         calling.setOnClickListener(v -> {
             if (call == null) {
@@ -171,17 +202,22 @@ public class MainActivity extends AppCompatActivity {
         slideModels.add(new SlideModel("https://firebasestorage.googleapis.com/v0/b/counsling-2eaf0.appspot.com/o/relationship%20issues%20(1).png?alt=media&token=058f5c7c-1d03-4731-ab9b-2191fddd08b9", ScaleTypes.FIT));
         imageSlider.setImageList(slideModels, ScaleTypes.FIT);
 
-        FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(task -> {
-            if (task.isSuccessful() && task.getResult()!=null){
-                sendFCMTokenToDatabase(task.getResult().getToken());
-            }
-        });
+            FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(task -> {
+                if (task.isSuccessful() && task.getResult() != null) {
+                    sendFCMTokenToDatabase(task.getResult().getToken());
+                }
+            });
 
     }
 
     private void sendFCMTokenToDatabase(String token){
-        DatabaseReference reference=FirebaseDatabase.getInstance().getReference("users").child(userId);
-        reference.child(Constants.KEY_FCM_TOKEN).setValue(token);
+        try {
+            DatabaseReference reference=FirebaseDatabase.getInstance().getReference("users").child(userId);
+            reference.child(Constants.KEY_FCM_TOKEN).setValue(token);
+        }catch (Exception e){
+
+        }
+
     }
 
     //LogoutFunction
@@ -192,7 +228,9 @@ public class MainActivity extends AppCompatActivity {
         DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("users").child(userId).child(Constants.KEY_FCM_TOKEN);
         databaseReference.removeValue();
         FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(), SignInActivity.class));
+        Intent intent=new Intent(getApplicationContext(),MainPageActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
         finish();
     }
 
@@ -254,5 +292,13 @@ public class MainActivity extends AppCompatActivity {
                 callinglayout.setVisibility(View.INVISIBLE);
             });
         }
+    }
+    private void invitefriends() {
+        ApplicationInfo api = getApplicationContext().getApplicationInfo();
+        String apkpath = api.sourceDir;
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("application/vnd.android.package-archive");
+        intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(apkpath)));
+        startActivity(Intent.createChooser(intent, "Sharevia"));
     }
 }

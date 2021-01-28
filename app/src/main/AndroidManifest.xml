@@ -24,15 +24,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".activities.MainPageActivity"
-            android:screenOrientation="portrait">
+        <activity android:name=".activities.AboutActivity"></activity>
+        <activity android:name=".activities.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.MainPageActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.BookingShowActivity"
             android:screenOrientation="portrait" />

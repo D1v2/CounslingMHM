@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -24,37 +23,29 @@ public class SignInActivity extends AppCompatActivity {
     private TextView buttonLogin;
     TextView forgetPassword;
     ProgressBar progressBar;
-    CheckBox checkBox;
-    Boolean isRemendar=false;
-    SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
         //ID connected
-        forgetPassword=findViewById(R.id.forgetpassword);
-        inputEmail=findViewById(R.id.inputEmail);
-        inputPassword=findViewById(R.id.inputPassword);
-        buttonLogin=findViewById(R.id.buttonsignin);
-        checkBox=findViewById(R.id.checkbox);
-        auth=FirebaseAuth.getInstance();
-        progressBar=findViewById(R.id.progressbar);
-
+        forgetPassword = findViewById(R.id.forgetpassword);
+        inputEmail = findViewById(R.id.inputEmail);
+        inputPassword = findViewById(R.id.inputPassword);
+        buttonLogin = findViewById(R.id.buttonsignin);
+        auth = FirebaseAuth.getInstance();
+        progressBar = findViewById(R.id.progressbar);
 
         //shared preference
-        sharedPreferences=getSharedPreferences("SHARED_PREF",MODE_PRIVATE);
-        isRemendar=sharedPreferences.getBoolean("Checked",false);
-        if(isRemendar){
-            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-            finish();
-        }
+
+
 
         //forgetpassword and expert login
-        forgetPassword.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),ForgetPasswordActivity.class)));
+        forgetPassword.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), ForgetPasswordActivity.class)));
 
         //Login button
-        findViewById(R.id.buttonsignup).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),SignUpActivity.class)));
+        findViewById(R.id.buttonsignup).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), SignUpActivity.class)));
         buttonLogin.setOnClickListener(v -> {
             if (inputEmail.getText().toString().trim().isEmpty()) {
                 inputEmail.setError("Email is required");
@@ -76,20 +67,18 @@ public class SignInActivity extends AppCompatActivity {
     private void signIn() {
         buttonLogin.setVisibility(View.INVISIBLE);
         progressBar.setVisibility(View.VISIBLE);
-        String email=inputEmail.getText().toString().trim();
-        String password=inputPassword.getText().toString().trim();
-        auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
-            if(task.isSuccessful()){
-                    boolean checked=checkBox.isChecked();
-                    SharedPreferences.Editor editor=sharedPreferences.edit();
-                    editor.putString("email",email);
-                    editor.putString("password",password);
-                    editor.putBoolean("Checked",checked);
-                    editor.apply();
-                    Toast.makeText(getApplicationContext(),"You login successful",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                    finish();
-            }else {
+        String email = inputEmail.getText().toString().trim();
+        String password = inputPassword.getText().toString().trim();
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+               SharedPreferences sharedPreferences=getSharedPreferences("userlog",MODE_PRIVATE);
+               SharedPreferences.Editor editor=sharedPreferences.edit();
+               editor.putBoolean("userlogin",true);
+               editor.apply();
+                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            } else {
                 Toast.makeText(SignInActivity.this, "Something is wrong !", Toast.LENGTH_SHORT).show();
                 buttonLogin.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.INVISIBLE);
@@ -97,5 +86,10 @@ public class SignInActivity extends AppCompatActivity {
         }).addOnFailureListener(e -> {
 
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

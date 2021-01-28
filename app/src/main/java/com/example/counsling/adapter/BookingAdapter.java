@@ -21,10 +21,9 @@ public class BookingAdapter extends FirebaseRecyclerAdapter<BookingHalper, Booki
 
     Context context;
     UserListener userListener;
-    public BookingAdapter(@NonNull FirebaseRecyclerOptions<BookingHalper> options, Context context, UserListener userListener) {
+    public BookingAdapter(@NonNull FirebaseRecyclerOptions<BookingHalper> options, Context context) {
         super(options);
         this.context=context;
-        this.userListener=userListener;
     }
 
     @Override
