@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean running;
     ImageSlider imageSlider;
     String doctorid = "CA1";
+    RelativeLayout userprofile;
     Chronometer chronometer;
     TextView connected, income;
     String receivername = "Admin";
@@ -75,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     Call call;
     SinchClient sinchClient;
     TextView usershowname;
-
+    String username,usernumber,useremail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,11 +128,15 @@ public class MainActivity extends AppCompatActivity {
         toggle.syncState();
         View view = navigationView.getHeaderView(0);
         usershowname=view.findViewById(R.id.usernameshow);
+        userprofile=view.findViewById(R.id.relative_profile);
+
         DatabaseReference reference=FirebaseDatabase.getInstance().getReference("users");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String username=snapshot.child(userId).child("name").getValue(String.class);
+                username=snapshot.child(userId).child("name").getValue(String.class);
+                useremail=snapshot.child(userId).child("email").getValue(String.class);
+                usernumber=snapshot.child(userId).child("phonenumber").getValue(String.class);
                 usershowname.setText(username);
             }
 
@@ -138,6 +144,13 @@ public class MainActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+        });
+        userprofile.setOnClickListener(v -> {
+            Intent intent=new Intent(getApplicationContext(),UserProfileActivity.class);
+            intent.putExtra("name",usernumber);
+            intent.putExtra("email",useremail);
+            intent.putExtra("number",usernumber);
+            startActivity(intent);
         });
         navigationView.setNavigationItemSelectedListener(menuItem -> {
 

@@ -42,6 +42,7 @@
                 android:layout_marginTop="@dimen/_40sdp"
                 android:includeFontPadding="false"
                 android:text="Name Of Person :"
+                style="@style/CardView.Dark"
                 android:textSize="@dimen/_15sdp"
                 tools:ignore="MissingConstraints" />
 
@@ -49,6 +50,7 @@
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/ShapeAppearance.MaterialComponents.MediumComponent"
                 android:layout_below="@+id/t1"
                 android:layout_marginLeft="@dimen/_40sdp"
                 android:layout_marginTop="@dimen/_15sdp"
@@ -63,6 +65,7 @@
                 android:layout_below="@+id/name"
                 android:layout_marginLeft="@dimen/_40sdp"
                 android:layout_marginTop="@dimen/_15sdp"
+                style="@style/CardView.Dark"
                 android:includeFontPadding="false"
                 android:text="Number : "
                 android:textSize="@dimen/_15sdp" />
@@ -72,6 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/t2"
+                style="@style/ShapeAppearance.MaterialComponents.MediumComponent"
                 android:layout_marginLeft="@dimen/_40sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:includeFontPadding="false"
@@ -85,6 +89,7 @@
                 android:layout_below="@+id/number"
                 android:layout_marginLeft="@dimen/_40sdp"
                 android:layout_marginTop="@dimen/_15sdp"
+                style="@style/CardView.Dark"
                 android:includeFontPadding="false"
                 android:text="Problem Issue :"
                 android:textSize="@dimen/_15sdp" />
@@ -94,6 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/t3"
+                style="@style/ShapeAppearance.MaterialComponents.MediumComponent"
                 android:layout_marginStart="@dimen/_40sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:includeFontPadding="false"
@@ -105,6 +111,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/problem"
+                style="@style/CardView.Dark"
                 android:layout_marginStart="@dimen/_40sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:includeFontPadding="false"
@@ -118,6 +125,7 @@
                 android:layout_below="@+id/t4"
                 android:layout_marginStart="@dimen/_40sdp"
                 android:layout_marginTop="@dimen/_15sdp"
+                style="@style/ShapeAppearance.MaterialComponents.MediumComponent"
                 android:includeFontPadding="false"
                 android:text="@string/hello"
                 android:textSize="@dimen/_15sdp" />

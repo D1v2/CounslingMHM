@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Counsling</string>
+    <string name="app_name">MHM</string>
     <string name="login_expert">Login Expert</string>
     <string name="login">Login</string>
     <string name="open">Open</string>
@@ -26,7 +26,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="forget_your_password">Forget your password?</string>
-    <string name="confirm_your_email_and_we_ll_send_and_instructions">Confirm your email and we\'ll send and instructions.</string>
+    <string name="confirm_your_email_and_we_ll_send_and_instructions">Confirm your email and we will send and instructions.</string>
     <string name="enter_your_email">Enter your email</string>
     <string name="reset_password">Reset password</string>
     <string name="user_login">User Login</string>

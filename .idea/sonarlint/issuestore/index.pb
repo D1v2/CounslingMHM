@@ -55,3 +55,7 @@ x
 Happ/src/main/java/com/example/counsling/activities/MainPageActivity.java,9\6\960ad7f1a5f949088cf3ecb5b19c2256584988e9
 u
 Eapp/src/main/java/com/example/counsling/activities/AboutActivity.java,4\c\4ce5a5f70fdc7004832a497916b59b3611e4a486
+X
+(app/src/main/res/drawable/contect_us.xml,2\9\29f27eafacb74ad2b5f62d5031cd8517d0753705
+_
+/app/src/main/res/drawable/navigation_header.xml,1\3\13b852fc8e4962c204e5d11932ce66c77a0a5ca5

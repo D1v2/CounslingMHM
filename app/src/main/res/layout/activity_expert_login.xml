@@ -39,7 +39,9 @@
                 android:background="@drawable/border"
                 android:gravity="center"
                 android:padding="15dp"
+                android:fontFamily="@font/sourcesanspro_semibold"
                 android:text="@string/login"
+                style="@style/BoldMono"
                 android:textColor="#fff"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -154,5 +156,6 @@
         android:textColor="#fff"
         android:textSize="30sp"
         android:textStyle="bold"
+        style="@style/BoldMono"
         tools:ignore="RtlHardcoded" />
 </RelativeLayout>

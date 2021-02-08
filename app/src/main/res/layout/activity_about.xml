@@ -6,25 +6,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.AboutActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/rec"
+        android:background="#fff"
+        android:elevation="@dimen/_10sdp"
+        android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/back"
             android:layout_width="@dimen/_25sdp"
             android:layout_margin="@dimen/_5sdp"
             android:layout_height="@dimen/_25sdp"
             android:src="@drawable/backarrow"
-            app:tint="#000" />
+            app:tint="#000"/>
+
+    </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_marginTop="5dp"
         android:layout_height="match_parent"
-        android:layout_below="@id/back"
+        android:layout_below="@id/rec"
         >
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textSize="@dimen/_15sdp"
-        android:fontFamily="@font/ubuntu_medium"
+        style="@style/CardView"
         android:layout_margin="@dimen/_10sdp"
         android:text="I am an certified Professional Life Coach and Relationship Coach I trained as a life coach and Relationship Coach and I wanted to be the help for so many people, friends, My Happyness Mantra is the best Online Counselling website.
     We provide Chat, Call or Video Counseling for Relationships, Confidence, Career, Parenting, Stress and Anxiety. Your Information will be kept 100% Private and Confidential. Get Professional and Affordable Counseling Available Anytime Anywhere. Experienced Life Coach on Call/Chat. No Appointment Needed.'

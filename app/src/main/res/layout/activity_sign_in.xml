@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:text="@string/login"
         android:textColor="#fff"
+        style="@style/BoldMono"
         android:textSize="30sp"
         android:gravity="top|center"
         android:textStyle="bold"
@@ -145,6 +146,7 @@
                 android:background="@drawable/border"
                 android:gravity="center"
                 android:padding="15dp"
+                style="@style/BoldMono"
                 android:text="@string/login"
                 android:textColor="#fff"
                 android:textSize="13sp"
@@ -172,6 +174,7 @@
         android:padding="15dp"
         android:text="create a new acccount"
         android:textColor="#fff"
+        style="@style/BoldCondensed"
         android:textSize="16sp"
         android:textStyle="bold"
         tools:ignore="NotSibling" />

@@ -1,37 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relative_profile"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/navigation_header"
-    android:orientation="vertical">
+    android:background="@drawable/navigation_header">
 
-    <RelativeLayout
-        android:id="@+id/logo"
-        android:layout_width="match_parent"
-        android:layout_height="160dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@drawable/logo"
-            android:contentDescription="@string/app_name" />
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/us"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_90sdp"
+        android:padding="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:src="@drawable/usericon"
+        android:contentDescription="@string/app_name" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/logo"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:orientation="vertical">
+        android:layout_width="wrap_content"
+        android:layout_toEndOf="@id/us"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Base.CardView"
+            android:text="Welcome"
+            />
         <TextView
             android:id="@+id/usernameshow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginStart="@dimen/_13sdp"
+            style="@style/CardView.Dark"
+            android:gravity="center"
+            android:fontFamily="@font/raleway_regular"
             android:includeFontPadding="false"
+            android:text="Hello World!"
             android:textSize="@dimen/_18ssp" />
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:contentDescription="@string/app_name"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+       android:layout_centerInParent="true"
+        />
+
 </RelativeLayout>

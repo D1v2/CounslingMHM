@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
     tools:context=".activities.MainPageActivity">
 
     <LinearLayout
@@ -15,11 +14,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_280sdp"
-            android:background="#fff"
             tools:ignore="MissingConstraints">
 
             <ImageView
                 android:layout_margin="@dimen/_50sdp"
+                android:elevation="@dimen/_10sdp"
+                android:background="#fff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/app_name"
@@ -30,10 +30,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_10sdp"
             android:includeFontPadding="false"
             android:text="Continue As"
             android:textAllCaps="true"
+            android:layout_marginBottom="@dimen/_10sdp"
+            style="@style/Regular"
             android:textColor="#989595"
             android:textSize="@dimen/_20ssp"
             android:textStyle="bold" />
@@ -42,12 +43,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="#fff"
+            android:elevation="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:elevation="@dimen/_10sdp"
                 android:padding="@dimen/_20sdp">
 
                 <LinearLayout
@@ -68,6 +72,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        style="@style/BoldCondensed"
                         android:text="User"
                         android:textSize="@dimen/_14sdp" />
                 </LinearLayout>
@@ -97,6 +102,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        style="@style/BoldCondensed"
                         android:text="Expert"
                         android:textSize="@dimen/_14sdp" />
                 </LinearLayout>
