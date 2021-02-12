@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout mainlayout, callinglayout;
     Button booking;
     private long pauseoff;
-    private boolean running;
     ImageSlider imageSlider;
     String doctorid = "CA1";
     RelativeLayout userprofile;
@@ -147,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
         });
         userprofile.setOnClickListener(v -> {
             Intent intent=new Intent(getApplicationContext(),UserProfileActivity.class);
-            intent.putExtra("name",usernumber);
+            intent.putExtra("name",username);
             intent.putExtra("email",useremail);
             intent.putExtra("number",usernumber);
             startActivity(intent);
@@ -186,8 +185,8 @@ public class MainActivity extends AppCompatActivity {
             sinchClient.getCallClient().addCallClientListener(new SinchCallClientListener() {
             });
             sinchClient.start();
-        }catch (Exception e){
-            System.out.println(e);
+        }catch (Exception e) {
+            e.printStackTrace();
         }
 
         calling.setOnClickListener(v -> {
@@ -227,8 +226,8 @@ public class MainActivity extends AppCompatActivity {
         try {
             DatabaseReference reference=FirebaseDatabase.getInstance().getReference("users").child(userId);
             reference.child(Constants.KEY_FCM_TOKEN).setValue(token);
-        }catch (Exception e){
-
+        }catch (Exception e) {
+            e.printStackTrace();
         }
 
     }

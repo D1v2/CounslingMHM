@@ -16,11 +16,18 @@
             android:text="Your Profile"
             android:fontFamily="@font/sourcesanspro_regular"
             android:gravity="center"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:textSize="@dimen/_20ssp"
             android:layout_alignParentEnd="true"
             android:id="@+id/p"
             android:layout_alignParentStart="true"
+            />
+
+        <view
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_below="@id/p"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
             />
 
         <LinearLayout

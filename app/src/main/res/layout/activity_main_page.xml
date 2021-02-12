@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#6EC1E4"
     tools:context=".activities.MainPageActivity">
 
     <LinearLayout
@@ -17,24 +17,25 @@
             tools:ignore="MissingConstraints">
 
             <ImageView
-                android:layout_margin="@dimen/_50sdp"
-                android:elevation="@dimen/_10sdp"
-                android:background="#fff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_40sdp"
+                android:background="#fff"
                 android:contentDescription="@string/app_name"
+                android:elevation="@dimen/_10sdp"
                 android:src="@drawable/logo" />
         </LinearLayout>
 
         <TextView
+            style="@style/Regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:fontFamily="@font/raleway_regular"
             android:includeFontPadding="false"
             android:text="Continue As"
             android:textAllCaps="true"
-            android:layout_marginBottom="@dimen/_10sdp"
-            style="@style/Regular"
             android:textColor="#989595"
             android:textSize="@dimen/_20ssp"
             android:textStyle="bold" />
@@ -43,9 +44,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:background="#fff"
             android:elevation="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -60,20 +61,23 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:background="@drawable/icon"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    tools:ignore="UselessParent">
 
                     <ImageView
                         android:layout_width="@dimen/_90sdp"
                         android:layout_height="@dimen/_80sdp"
+                        android:contentDescription="@string/app_name"
                         android:padding="@dimen/_10sdp"
                         android:src="@drawable/abcd" />
 
                     <TextView
+                        style="@style/BoldCondensed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        style="@style/BoldCondensed"
                         android:text="User"
+                        android:fontFamily="@font/sourcesanspro_semibold"
                         android:textSize="@dimen/_14sdp" />
                 </LinearLayout>
             </LinearLayout>
@@ -89,7 +93,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:background="@drawable/icon"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    tools:ignore="UselessParent">
 
                     <ImageView
                         android:layout_width="@dimen/_90sdp"
@@ -99,14 +104,16 @@
                         android:src="@drawable/iconfinder_user_61842" />
 
                     <TextView
+                        style="@style/BoldCondensed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        style="@style/BoldCondensed"
                         android:text="Expert"
+                        android:fontFamily="@font/sourcesanspro_semibold"
                         android:textSize="@dimen/_14sdp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

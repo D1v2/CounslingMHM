@@ -5,32 +5,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:backgroundTint="#082628"
+    android:background="@drawable/gradient_screen"
     tools:context=".activities.SignInActivity">
 
-    <ImageView
-        android:id="@+id/imgvw"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/logo" />
-
     <TextView
-        android:id="@+id/bytes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login"
         android:textColor="#fff"
-        style="@style/BoldMono"
+        android:layout_marginTop="@dimen/_53ssp"
         android:textSize="30sp"
+        android:fontFamily="@font/sourcesanspro_regular"
         android:gravity="top|center"
         android:textStyle="bold"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="30dp"
-        android:layout_below="@+id/imgvw"
         tools:ignore="RtlHardcoded" />
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,20 +30,24 @@
         android:paddingRight="25dp"
         android:layout_marginTop="220dp"
         android:id="@+id/lnrlyout">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            >
+            tools:ignore="UselessParent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="13dp">
+
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/user"
+                    android:contentDescription="@string/app_name"
                     android:layout_gravity="center"/>
                 <EditText
                     android:id="@+id/inputEmail"
@@ -62,13 +56,14 @@
                     android:hint="Enter Email"
                     android:padding="10dp"
                     android:textColorHint="#fff"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:fontFamily="@font/sourcesanspro_regular"
                     android:background="#00000000"
                     android:letterSpacing="0.1"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     android:textColor="#fff"
                     android:inputType="text"
-                    />
+                    tools:ignore="TextFields" />
             </LinearLayout>
 
             <LinearLayout
@@ -83,6 +78,7 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
+                    android:contentDescription="@string/app_name"
                     android:src="@drawable/password"
                     android:layout_gravity="center"/>
                 <EditText
@@ -91,12 +87,13 @@
                     android:layout_height="wrap_content"
                     android:hint="Password"
                     android:padding="10dp"
+                    android:fontFamily="@font/sourcesanspro_regular"
                     android:textColorHint="#fff"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
                     android:background="#00000000"
                     android:inputType="textPassword"
                     android:letterSpacing="0.1"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     android:textColor="#fff"
                     />
             </LinearLayout>
@@ -116,7 +113,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:includeFontPadding="false"
-                    android:textSize="15dp"
+                    android:fontFamily="@font/raleway_regular"
+                    android:textSize="15sp"
                     android:text="Reset Password ?"
                     android:textColor="#fff"
                     />
@@ -146,10 +144,10 @@
                 android:background="@drawable/border"
                 android:gravity="center"
                 android:padding="15dp"
-                style="@style/BoldMono"
                 android:text="@string/login"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:textColor="#fff"
-                android:textSize="13sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
             <ProgressBar
                 android:id="@+id/progressbar"
@@ -169,12 +167,11 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/_40sdp"
-        android:layout_weight="1"
         android:gravity="center"
         android:padding="15dp"
         android:text="create a new acccount"
         android:textColor="#fff"
-        style="@style/BoldCondensed"
+        android:fontFamily="@font/sourcesanspro_regular"
         android:textSize="16sp"
         android:textStyle="bold"
         tools:ignore="NotSibling" />

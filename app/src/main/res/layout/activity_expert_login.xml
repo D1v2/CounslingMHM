@@ -4,18 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:backgroundTint="#082628"
+    android:background="@drawable/gradient_screen"
     tools:context=".activities.ExpertLoginActivity">
-
-    <ImageView
-        android:id="@+id/imgvw"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/logo"
-        android:contentDescription="@string/app_name" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,9 +31,8 @@
                 android:padding="15dp"
                 android:fontFamily="@font/sourcesanspro_semibold"
                 android:text="@string/login"
-                style="@style/BoldMono"
                 android:textColor="#fff"
-                android:textSize="13sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <ProgressBar
@@ -94,6 +83,7 @@
                     android:inputType="text"
                     android:letterSpacing="0.1"
                     android:padding="10dp"
+                    android:fontFamily="@font/sourcesanspro_regular"
                     android:textColor="#fff"
                     android:textColorHint="#fff"
                     android:textSize="16sp"
@@ -129,6 +119,7 @@
                     android:inputType="textPassword"
                     android:letterSpacing="0.1"
                     android:padding="10dp"
+                    android:fontFamily="@font/sourcesanspro_regular"
                     android:textColor="#fff"
                     android:textColorHint="#fff"
                     android:textSize="16sp"
@@ -144,18 +135,20 @@
 
     <TextView
         android:id="@+id/bytes"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/imgvw"
+        style="@style/BoldMono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/lnrlyout"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="30dp"
-        android:gravity="top|center"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/sourcesanspro_semibold"
+        android:layout_marginBottom="270dp"
         android:text="@string/login"
         android:textColor="#fff"
         android:textSize="30sp"
         android:textStyle="bold"
-        style="@style/BoldMono"
         tools:ignore="RtlHardcoded" />
 </RelativeLayout>

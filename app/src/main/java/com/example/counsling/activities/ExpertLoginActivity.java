@@ -70,7 +70,7 @@ public class ExpertLoginActivity extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), UserShowActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
-                        finish();
+                        finishAffinity();
                     } else {
                         Toast.makeText(ExpertLoginActivity.this, "You are unable to login", Toast.LENGTH_SHORT).show();
                         buttonLogin.setVisibility(View.VISIBLE);

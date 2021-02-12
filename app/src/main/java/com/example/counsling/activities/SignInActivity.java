@@ -59,7 +59,7 @@ public class SignInActivity extends AppCompatActivity {
             } else {
                 signIn();
             }
-        });
+
     }
 
     //it function call in login button
@@ -76,8 +76,8 @@ public class SignInActivity extends AppCompatActivity {
                editor.putBoolean("userlogin",true);
                editor.apply();
                 Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
+                finishAffinity();
             } else {
                 Toast.makeText(SignInActivity.this, "Something is wrong !", Toast.LENGTH_SHORT).show();
                 buttonLogin.setVisibility(View.VISIBLE);
